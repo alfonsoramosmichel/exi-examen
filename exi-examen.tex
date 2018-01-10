@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	Licencia:		Este documento se distribuye bajo licencia (CC BY 4.0) Usted puede encontrar un resumen %%
+%%					de la licencia en http://creativecommons.org/licenses/by/4.0/deed.es					%%
+%%																											%%
+%%	-----------------------------------------------------------------------------------------------------	%%
+%%																											%%
+%%	Plantilla:		exi-examen																				%%
+%%	Descripción:	exi-examen.tex es una plantilla para realizar exámenes escritos en formato LaTeX		%%
+%%	Autor:			Ing. Alfonso Ramos Michel																%%
+%%	Fecha:			9 de diciembre de 2013																	%%
+%%	Revisión:		UNO-A																					%%
+%%	Paquetes:		inputenc																				%%
+%%					babel																					%%
+%%					graphicx																				%%
+%%					amsmath																					%%
+%%					geometry 																				%%
+%%					fancyhdr																				%%
+%%	Comandos:		\ExiEscuela		Para definir la institución educativa donde se realiza el examen.		%%
+%%					\ExiCarrera		Para definir la carrera que se realiza.									%%
+%%					\ExiMateria		Para definir la materia que se cursa.									%%
+%%					\ExiParcial		Para definir el parcial del cual se realiza el examen.					%%
+%%					\informacion	Muesta un recuadro donde poder dar instrucciones al alumno.				%%
+%%					\datos			Muestra una línea para el nombre del alumno y la fecha de realización.	%%
+%%					\pregunta		Permite introducir (dentro del entorno enummerate) una pregunta o el 	%%
+%%									planteamiento de un problema.											%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[hmargin=1in, vmargin=1in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\ExiCarrera}
+\chead{\ExiMateria}
+\rhead{\ExiParcial}
+\cfoot{\ExiEscuela}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+%=================================================================================
+%	Definición de comandos
+%=================================================================================
+\newcommand{\informacion}[1]{
+\begin{center}
+\fbox{\fbox{\parbox{\textwidth}{{\footnotesize#1}}}}
+\end{center}
+\vspace{5mm}}
+\newcommand{\datos}{\makebox[0.7\textwidth]{Nombre:~\hrulefill} Fecha:~\hrulefill}
+\newcommand{\pregunta}[2]{\item{#2}~{(#1 puntos)}\\ \vspace{5mm}						       
+			{\bf Solución}}														  
+%	Los siguientes comandos hay que definirlos desde aquí.								    %
+\newcommand{\ExiCarrera}{ Plantillas \LaTeX}											  %%%
+\newcommand{\ExiMateria}{\LaTeX}														%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ExiParcial}{Parcial}														  %%%
+\newcommand{\ExiEscuela}{Electroni-x Ingeniería Laboratorio}	                		    %
+
+%=================================================================================
+%	Aquí comienza lo bueno, a definir el examen!!!!
+%=================================================================================
+\begin{document}
+
+\informacion{Sírvase contestar completamente el examen. Asegúrese de comprender cada reactivo antes de proceder a responder. Anote debajo de cada reactivo, únicamente la solución a la pregunta o problema, anotando todo el procedimiento realizado para llegar a su resultado en una hoja en blanco, de lo contrario, el resultado será inválido.}
+\datos
+
+\begin{enumerate}
+	\pregunta{10}{Primer pregunta}
+\end{enumerate}
+
+\end{document}
